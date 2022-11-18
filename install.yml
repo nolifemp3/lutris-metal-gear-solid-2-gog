@@ -1,0 +1,38 @@
+
+files:
+- setupfile: 'N/A: Please select the GOG setup file'
+- vsfix: https://github.com/VFansss/mgs2-v-s-fix/releases/download/v1.8.1/MGS.V.s.Fix.v1.8.1.zip
+- dsound: https://www.indirectsound.com/downloads/IndirectSound_0_20.zip
+game:
+  arch: win32
+  exe: $GAMEDIR/drive_c/GOG Games/Metal Gear Solid 2 Substance/bin/MGS2SSetup.exe
+  prefix: $GAMEDIR
+installer:
+- task:
+    app: win7 dotnet48 xact directmusic dsdmo quartz
+    arch: win32
+    name: winetricks
+    prefix: $GAMEDIR
+- task:
+    args: /SILENT /LANG=en /SP- /NOCANCEL /SUPPRESSMSGBOXES /NOGUI
+    description: Extracting game data
+    executable: setupfile
+    name: wineexec
+    prefix: $GAMEDIR
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Metal Gear Solid 2 Substance/bin
+    file: dsound
+- extract:
+    dst: $GAMEDIR/drive_c/GOG Games/Metal Gear Solid 2 Substance/bin/
+    file: vsfix
+system:
+  pulse_latency: true
+wine:
+  esync: true
+  overrides:
+    d3d8: n,b
+    d3d9: n,b
+    dinput: n,b
+    dinput8: n,b
+    msacm32: n,b
+    xinput1_3: n,b

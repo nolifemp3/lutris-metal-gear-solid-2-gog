@@ -1,6 +1,6 @@
 
 files:
-- setupfile: 'N/A: Please select the GOG setup file'
+- setupfile: '/home/deck/Downloads/METAL.GEAR.SOLID.2.SUBSTANCE-GOG/'
 - vsfix: https://github.com/VFansss/mgs2-v-s-fix/releases/download/v1.8.1/MGS.V.s.Fix.v1.8.1.zip
 - dsound: https://www.indirectsound.com/downloads/IndirectSound_0_20.zip
 game:
